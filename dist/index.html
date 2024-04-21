@@ -7,39 +7,79 @@
 
 </head>
 <body>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous"
+		referrerpolicy="no-referrer" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"
+		integrity="sha512-U5C477Z8VvmbYAoV4HDq17tf4wG6HXPC6/KM9+0/wEXQQ13gmKY2Zb0Z2vu0VNUWch4GlJ+Tl/dfoLOH4i2msw==" crossorigin="anonymous"
+		referrerpolicy="no-referrer"></script>
 <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
 <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
 
 <h1>Recognize hand gestures using the MediaPipe HandGestureRecognizer task</h1>
 
 <section id="demos" class="invisible">
-  <h2>Demo: Recognize gestures</h2>
+ 
+  <div class="w-[650px] mx-auto">
+      <h2>Demo: Recognize gestures</h2>
   <p><em>Click on an image below</em> to identify the gestures in the image.</p>
 
   <div class="detectOnClick">
     <img src="https://assets.codepen.io/9177687/idea-gcbe74dc69_1920.jpg" crossorigin="anonymous" title="Click to get recognize!" />
     <p class="classification removed">
   </div>
-  <div class="detectOnClick">
-    <img src="https://assets.codepen.io/9177687/thumbs-up-ga409ddbd6_1.png" crossorigin="anonymous" title="Click to get recognize!" />
-    <p class="classification removed">
-  </div>
 
   <h2><br>Demo: Webcam continuous hand gesture detection</h2>
   <p>Use your hand to make gestures in front of the camera to get gesture classification. </br>Click <b>enable webcam</b> below and grant access to the webcam if prompted.</p>
+  </div>
 
-  <div id="liveView" class="videoView">
+  <div id="liveView" class="videoView mt-[150px]">
     <button id="webcamButton" class="mdc-button mdc-button--raised">
       <span class="mdc-button__ripple"></span>
       <span class="mdc-button__label">ENABLE WEBCAM</span>
     </button>
     <div style="position: relative;">
       <video id="webcam" autoplay playsinline></video>
-      <canvas class="output_canvas" id="output_canvas" width="1280" height="720" style="position: absolute; left: 0px; top: 0px;"></canvas>
+      <canvas class="output_canvas block" id="output_canvas" width="450" height="560" style="position: absolute; left: 0px; top: 0px;"></canvas>
       <p id='gesture_output' class="output">
     </div>
   </div>
 </section>
+
+
+<section class="w-[850px] ms-auto">
+	<main>
+		<h3>Open a PDF file</h3>
+		<canvas class="pdf-viewer hidden max-w-[820px] max-h-[750px]">
+
+		</canvas>
+	</main>
+	<footer>
+		<ul>
+			<li>
+				<button id="openPDF">
+					<span>Open</span> <i class="fas fa-folder-open"></i>
+				</button>
+				<input type="file" id="inputFile" hidden>
+			</li>
+			<li class="pagination">
+				<button id="previous"><i class="fas fa-arrow-alt-circle-left"></i></button>
+				<span id="current_page">0 of 0</span>
+				<button id="next"><i class="fas fa-arrow-alt-circle-right"></i></button>
+			</li>
+
+			<li>
+				<span id="zoomValue">150%</span>
+				<input type="range" id="zoom" name="cowbell" min="100" max="300" value="150" step="50" disabled>
+			</li>
+		</ul>
+	</footer>
+</section>
+
+
 <!-- partial -->
   <script type="module" src="./script.js"></script>
 
