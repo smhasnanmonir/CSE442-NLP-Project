@@ -34,7 +34,7 @@ function toNextPage(callback) {
   }
   setTimeout(() => {
     callback();
-  }, 1000);
+  }, 1500);
 }
 
 function toPrevPage(callback) {
@@ -46,14 +46,13 @@ function toPrevPage(callback) {
   }
   setTimeout(() => {
     callback();
-  }, 1000);
+  }, 1500);
 }
 
 function detectGesture(categoryName) {
   if (!isChangingPage) {
     if (categoryName === "one") {
       isChangingPage = true;
-      pdfArray.push("one");
       toNextPage(() => {
         isChangingPage = false;
       });
