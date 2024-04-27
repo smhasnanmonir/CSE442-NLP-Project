@@ -34,7 +34,7 @@ function toNextPage(callback) {
   }
   setTimeout(() => {
     callback();
-  }, 1500);
+  }, 2500);
 }
 
 function toPrevPage(callback) {
@@ -46,7 +46,7 @@ function toPrevPage(callback) {
   }
   setTimeout(() => {
     callback();
-  }, 1500);
+  }, 2500);
 }
 
 function detectGesture(categoryName) {
